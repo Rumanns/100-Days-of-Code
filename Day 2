@@ -1,0 +1,19 @@
+# Title: Tip calculator
+# Objective: Calculate a tip.
+# Authon: José Valdeir
+
+print('Welcome to the tip calculator!')
+total = str(input('What was the total bill? $'))
+
+while total.isnumeric():
+    total = int(total)
+    people = input('How many people to split the bill? ')
+    div = total / int(people)
+    print('Total per person is: ', div)
+    while people.isnumeric():
+        percent = input('What percentage tip woul you like to give? 10, 12 or 15?')
+        percent = float(percent)
+        tip = percent/100
+        print('Total tip: ', tip)
+        break
+    break
