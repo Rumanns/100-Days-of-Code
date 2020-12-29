@@ -1,0 +1,57 @@
+# Title: Treasure island
+# Objective: Find a treasure. Game!
+# Author: José Valdeir
+
+act1 = str(input("Welcome to the treasure island!"
+                 "\nYour mission is found a treasure!"
+                    "You're in a strange beach. What do you do?"
+                 "\n [A] To explore the jungle."
+                 "\n [B] To walk on the beach.\n")).upper()
+while act1 != 'A' and act1 != 'B':
+    act1 = str(input("Wrong choice. Try Again!"
+                     "\n [A] Explore the jungle\n [B] Walk on the beach")).upper()
+
+while act1 == 'A':
+    act2 = str(input("You found a cave!"
+                     "\n [A] To enter the cave."
+                     "\n [B] To keep walking.\n")).upper()
+    while act2 != 'A' and act2 != 'B':
+        act2 = str(input("Wrong choice. Try again."
+                         "\nYou found a cave!"
+                         "\n [A] To enter the cave."
+                         "\n [B] To keep walking.\n")).upper()
+    if act2 == 'A':
+        print('The cave is very dark. You hear a very loud noise. Feels a blow, faint.'
+              ' And wake up hooked being skinned by a ogre. [You died]')
+        break
+    elif act2 == 'B':
+        act3 = str(input('You found a hounted house!'
+                         '\n [A] To enter the house.'
+                         '\n [B] To go to the bottom of house.\n')).upper()
+        while act3 != 'A' and act3 != 'B':
+            act3 = str(input('Wrong choice. Try again. You found a hounted house!'
+                             '\n [A] To enter the house.'
+                             '\n [B] To go to the bottom of house.')).upper()
+        if act3 == 'A':
+            print('The floor opened! You fell into a trap and broken your two legs! [You died]')
+            break
+        elif act3 == 'B':
+            print("You fell in a trap space. You will never arrive to the bottom of house. And never will came back"
+                    "you're trapped for ever in the same space time! But is aware of the past time."
+                    "\n[WOW. You'll live for ever!]")
+            break
+
+while act1 == 'B':
+    act2 = str(input("You found a X.\n [A] To dig\n [B] To keep walking\n")).upper()
+    while act2 != 'A' and act2 != 'B':
+        act2 = str(input('Wrong choice. Try again!'
+                         '\n [A] To dig.'
+                         '\n [B] To keep walking.\n')).upper()
+    if act2 == 'A':
+        print("You found a lot of jewelry, gold and amulets! "
+              "But when you touching it you fell a huge emptiness, your soul was captured."
+              "\bNow you'll live for the amulets and treasures from the island.")
+        break
+    elif act2 == 'B':
+        print("You arrive in a cave full of gold! Congratulations! You're a rich bitch!")
+        break
