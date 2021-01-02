@@ -1,0 +1,89 @@
+# Title: Password generate
+# Objective: Generate passwords
+# Date: 01/01/2021
+# Author: José Valdeir
+
+import tkinter as tk
+import random
+
+class Tela:
+    def __init__(self, master):
+        self.janelaprincipal = master
+        self.janelaprincipal.title('Password Generator')
+
+        self.frame1 = tk.Frame(self.janelaprincipal)
+        self.frame1.pack(padx='200', pady='200')
+
+        self.msg1 = tk.Label(self.janelaprincipal, text='Input how many letters would you like in your password:')
+        self.msg1.place(anchor=tk.NW, x='30', y='30')
+        self.letters = tk.Entry(self.janelaprincipal)
+        self.letters.place(x='35', y='55')
+
+        self.msg2 = tk.Label(self.janelaprincipal, text='Input how many symbols would you like in your password:')
+        self.msg2.place(x='30', y='100')
+        self.symbols = tk.Entry(self.janelaprincipal)
+        self.symbols.place(x='35', y='125')
+
+        self.msg3 = tk.Label(self.janelaprincipal, text='Input how many numbers would you like in your passwors:')
+        self.msg3.place(x='30', y='170')
+        self.numbers = tk.Entry(self.janelaprincipal)
+        self.numbers.place(x='35', y='195')
+
+        self.gen = tk.Button(self.janelaprincipal, text='Generate', command=self.generate)
+        self.gen.place(x='35', y='230')
+
+    def generate(self):
+        draw = []
+        result = []
+        letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+                   'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+                   'u', 'v', 'w', 'x', 'y', 'z']
+        symbols = ['!', '@', '#', '$', '%', '¨', '&', '*', '-', '+',
+                   '_', '=', '/', ';', '|', '£', '¢', '¬', '§', '?']
+        numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+        for c in range(0, int(self.letters.get())):
+            lett = random.randint(0, 25)
+            isEven = random.randint(1, 2)
+#            while letters[lett] in draw:
+#                lett = random.randint(0, 25)
+            if isEven == 1:
+                draw.append(letters[lett].upper())
+#                print(letters[lett].upper(), end='')
+            else:
+                draw.append(letters[lett].lower())
+#                print(letters[lett], end='')
+
+        for c in range(0, int(self.symbols.get())):
+            sym = random.randint(0, 19)
+#            while symbols[sym] in draw:
+#                sym = random.randint(0, 19)
+            draw.append(symbols[sym])
+#            print(symbols[sym], end='')
+
+        for c in range(0, int(self.numbers.get())):
+            num = random.randint(0, 9)
+#            while numbers[num] in draw:
+#                num = random.randint(0, 9)
+            draw.append(numbers[num])
+#            print(numbers[num], end='')
+
+        for c in range(0, len(draw)):
+            sort = random.randint(0, len(draw)-1)
+#            print(draw[sort])
+#            while draw[sort] in result:
+# Aqui eu tenho que retirar os valores que já foram sorteados, se não o programa entra num loop infinito tentando sortear o último número. Ou não, sei lá
+#                sort = random.randint(0, len(draw)-1)
+#            else:
+            result.append(draw[sort])
+#            resultFinal = result
+#            sort = random.choices(draw)
+        print(f'\n {result}')
+
+        self.result = tk.Label(self.janelaprincipal, text=result)
+        self.result.place(x='35', y='270')
+
+
+janelaprincipal = tk.Tk()
+Tela(janelaprincipal)
+janelaprincipal.mainloop()
