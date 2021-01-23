@@ -14,7 +14,8 @@ while n > 1:
             if c == 1:
                 print(n, 'é primo!')
 
-'''            if c > 1:
+'''            
+            if c > 1:
                 print(n, 'não é primo')
             else:
                 print(n, 'é primo!')
